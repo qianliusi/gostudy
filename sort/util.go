@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+func swap(arr []int, i, j int) {
+	arr[i], arr[j] = arr[j], arr[i]
+}
+
 func genRandomSlice(len int) []int {
 	var ret = make([]int, len, len)
 	rand.Seed(time.Now().UnixNano())
