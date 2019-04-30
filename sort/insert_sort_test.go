@@ -1,14 +1,13 @@
 package sort
 
 import (
-	"fmt"
 	"testing"
 )
 
 func TestInsertSort1(t *testing.T) {
-	a := genRandomSlice(3)
-	insertSort(a)
-	fmt.Println(a)
+	a := genRandomSlice(100000)
+	insertionSort(a)
+	//fmt.Println(a)
 }
 
 func BenchmarkInsertSort1(b *testing.B) {
