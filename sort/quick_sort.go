@@ -1,12 +1,11 @@
 package sort
 
 func quickSort(d []int) {
-	l := 0
-	r := len(d) - 1
-	if l < r {
-		pi := partition(d[l : r+1])
-		quickSort(d[l:pi])
-		quickSort(d[pi+1 : r+1])
+	r := len(d)
+	if r > 1 {
+		pi := partition(d[:r])
+		quickSort(d[:pi])
+		quickSort(d[pi+1 : r])
 	}
 }
 
@@ -16,7 +15,7 @@ func partition(d []int) int {
 	for i := index; i < len(d); i++ {
 		if d[i] < d[p] {
 			swap(d, i, index)
-			index += 1
+			index++
 		}
 	}
 	swap(d, p, index-1)

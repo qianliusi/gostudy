@@ -1,8 +1,6 @@
 package sort
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func heapSort(d []int) {
 	//p(d, "heapSort start")
@@ -20,21 +18,8 @@ func buildMaxHeap(d []int) {
 		return
 	}
 	first := length/2 - 1
-
 	for i := first; i >= 0; i-- {
-		left := 2*i + 1
-		right := 2*i + 2
-		maxInx := findMax(d, i, left, right)
-		if maxInx == i {
-			continue
-		}
-		if maxInx == left {
-			d[i], d[left] = d[left], d[i]
-			heapAdjust(d, left, length)
-		} else {
-			d[i], d[right] = d[right], d[i]
-			heapAdjust(d, right, length)
-		}
+		heapAdjust(d, i, length)
 	}
 }
 func heapAdjust(d []int, index int, end int) {
@@ -61,7 +46,6 @@ func p(d []int, s string) {
 	fmt.Println(d, s)
 }
 
-//maxInx:= findMax(d, i, 2*i+1, 2*i+2)
 func findMax(d []int, idx1 int, idx2 ...int) int {
 	l := len(d)
 	maxIdx := idx1
