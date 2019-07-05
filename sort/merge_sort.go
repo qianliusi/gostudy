@@ -5,10 +5,8 @@ func mergeSort(arr []int) []int {
 	if length < 2 {
 		return arr
 	}
-	middle := length / 2
-	left := arr[0:middle]
-	right := arr[middle:]
-	return merge(mergeSort(left), mergeSort(right))
+	m := length / 2
+	return merge(mergeSort(arr[:m]), mergeSort(arr[m:]))
 }
 
 func merge(left []int, right []int) []int {
@@ -22,16 +20,11 @@ func merge(left []int, right []int) []int {
 			right = right[1:]
 		}
 	}
-
-	for len(left) != 0 {
-		result = append(result, left[0])
-		left = left[1:]
+	if len(left) != 0 {
+		result = append(result, left...)
 	}
-
-	for len(right) != 0 {
-		result = append(result, right[0])
-		right = right[1:]
+	if len(right) != 0 {
+		result = append(result, right...)
 	}
-
 	return result
 }

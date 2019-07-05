@@ -5,9 +5,8 @@ import (
 )
 
 func TestMergeSort1(t *testing.T) {
-	a := genRandomSliceLimit(100000000, 100000000)
+	a := genRandomSliceLimit(10000000, 1000000000)
 	mergeSort(a)
-	//fmt.Println(a)
 }
 
 func BenchmarkMergeSort1(b *testing.B) {
