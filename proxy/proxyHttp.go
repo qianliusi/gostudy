@@ -34,7 +34,7 @@ func SmsToBytes(s *Sms) []byte {
 }
 
 func statistic(w http.ResponseWriter, r *http.Request) {
-	log.Println("request from " + r.Host + " " + r.Method + " " + r.RequestURI)
+	log.Println("request from " + r.RemoteAddr + " " + r.Method + " " + r.RequestURI)
 	path := proxyWeb + r.URL.Path
 	/*if strings.HasSuffix(path, ".js") {
 		proxy(w, r)
@@ -98,7 +98,7 @@ func main() {
 	//open()
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", statistic)
-	err := http.ListenAndServe(":80", mux)
+	err := http.ListenAndServe(":8010", mux)
 	if err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}

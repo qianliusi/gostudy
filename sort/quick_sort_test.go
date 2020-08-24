@@ -6,7 +6,8 @@ import (
 
 func TestQuickSort1(t *testing.T) {
 	//a := genRandomSliceLimit(10, 20)
-	a := genRandomSliceLimit(100000000, 1000000000)
+	scale := 100000000
+	a := genRandomSliceLimit(scale, scale)
 	quickSort(a)
 	//fmt.Println(a)
 }
